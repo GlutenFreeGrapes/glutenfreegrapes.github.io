@@ -3,16 +3,73 @@
     <head>
         <meta charset="en-US">
         <title>About</title>
+        <link rel="stylesheet" href="styles/styles.css"> 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div class = "links">
-            <a href="./index.html">main</a>
-            <a href="./about.html">about</a>
-            <a href="./projects.html">projects</a>
-            <a href="./resume.html">resume</a>
+        <div class = "header">
+            <div class="logo">GlutenFreeGrapes</div>
+            <ul>
+                <li><a href="./index.html">main</a></li>
+                <li><a href="./about.html">about</a></li>
+                <li><a href="./projects.html">projects</a></li>
+                <li><a href="./resume.html">resume</a></li>
+            </ul>
         </div>
-        <h1>About</h1>
-        <p><b>Daniel Lian</b> is a second-year Computer Science student at the University of Michigan, graduating in May 2026. Mainly proficient in Java and Python, picking up HTML/CSS, JavaScript, and C/C++. Passionate about software development, machine learning, artificial intelligence, and data science. </p>
-        <a href="https://www.github.com/GlutenFreeGrapes"><img src=""></a>
+        <div class="topbox">
+            <div class="top-text">
+                <div class="main-title">About Me</div>
+                <div class="main-subtext">Hello! I'm <b>Daniel Lian</b> (he/him), a third-year <a href = "https://cse.engin.umich.edu/academics/undergraduate/programs/computer-science-eng/" style="font-weight: bold;">Computer Science</a> student at the <a href = "http://engin.umich.edu/" style="font-weight: bold;">College of Engineering</a> at the <a href="https://umich.edu" style="font-weight: bold;">University of Michigan</a>, graduating in May 2026. Before then, I attended <a href="https://tjhsst.fcps.edu" style="font-weight: bold;">Thomas Jefferson High School for Science and Technology</a>, where I found my love for computer science. I am mainly proficient in Java and Python, but picking up HTML/CSS, JavaScript, and C/C++. Passionate about software development, machine learning, artificial intelligence, and data science.</div>
+                <div class="main-subtext">At UMich, I'm a member of <a href="https://maizepages.umich.edu/organization/aivcf" style="font-weight: bold;">Asian Intervarsity</a>, <a href="https://uac.umich.edu/mac/" style="font-weight: bold;">Quiz Bowl</a>, and the <a href="https://wolvsec.org/" style="font-weight: bold;">WolvSec Cybersecurity Club</a>.</div>
+
+            </div>
+            <img src="assets/headshot.jpg" alt="headshot">
+        </div>
+
+        <!-- hobbies -->
+        <div class="infobox">
+            <div class="info-title">Some other things I do...</div>
+            <div class="info-container">
+                <div class="info">
+                    <div class="emoji">🖌️</div>                    
+                    <div class="description">Draw. Not the best at it, though.</div>
+                </div>
+                <div class="info">
+                    <div class="emoji">🏃‍♂️</div>
+                    <div class="description">Running. Hoping to break 8:00 mile someday.</div>
+                </div>
+                <div class="info">
+                    <div class="emoji">🏐</div>
+                    <div class="description">Volleyball. Need to improve jump height.</div>
+                </div>
+                <div class="info">
+                    <div class="emoji">🌍</div>
+                    <div class="description">Travel. I've been everywhere, man, I've been everywhere, man.</div>
+                </div>
+                <div class="info">
+                    <div class="emoji">🍳</div>
+                    <div class="description">Cooking/baking. Better than dining hall food, at least.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- socials -->
+        <div class="socials">
+            <div class="socials-header">Check out some of my socials:</div>
+            <div class="socials-icons">
+                <a class="link-icon" href="mailto:daniellian238@gmail.com"><ion-icon name="mail"></ion-icon></a>
+                <a class="link-icon" href="https://www.github.com/GlutenFreeGrapes"><ion-icon name="logo-github"></ion-icon></a>
+                <a class="link-icon" href="https://www.linkedin.com/in/daniellian05"><ion-icon name="logo-linkedin"></ion-icon></a>
+            </div>
+        </div>
+        
+        
+
+
+        <!-- needed for icons to function -->
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     </body>
 </html>
