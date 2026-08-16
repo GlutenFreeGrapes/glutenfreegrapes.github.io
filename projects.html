@@ -35,50 +35,49 @@
 
             // Example placeholder function to handle the data next
             function processMyData(allText) {
-                        // Do your work with the string here
-                        let projects_list = document.querySelector(".projects-list");
-                        data = allText.split('/\r\n|\n/');
-                        for (var row in data) data[row].split('\t');
+                // Do your work with the string here
+                let projects_list = document.querySelector(".projects-list");
+                let data = allText.split('/\r\n|\n/');
+                for (var row in data) data[row].split('\t');
 
-                        for (var project in data) {
-                        let title = project[0];
-                        let url = project[1];
-                        let tech = project[2];
-                        let dates = project[3];
-                        let bullets = project.slice(4);
+                for (var project in data) {
+                    let title = project[0];
+                    let url = project[1];
+                    let tech = project[2];
+                    let dates = project[3];
+                    let bullets = project.slice(4);
 
-                        let project_li = document.createElement("li");
+                    let project_li = document.createElement("li");
 
-                        let project_h2 = document.createElement("h2");
-                        let project_title_text = document.createTextNode(title);
-                        project_h2.appendChild(project_title_text);
+                    let project_h2 = document.createElement("h2");
+                    project_h2.innerText = title;
 
-                        if (url !== "") {
-                            let href = document.createElement("a");
-                            href.setAttribute("href", url);
+                    if (url !== "") {
+                        let href = document.createElement("a");
+                        href.setAttribute("href", url);
 
-                            let icon = document.createElement("ion-icon");
-                            icon.setAttribute("size", "small");
-                            icon.setAttribute("name", "link");
-                            
-                            href.appendChild(icon);
-                            project_h2.appendChild(href);
-                        }
-                        project_li.appendChild(project_h2);
-
-                        let project_description = document.createElement("ul");
-                        project_description.setAttribute("class", "description")
-                        for (var description in bullets) {
-                            let project_description_bullet = document.createElement("li");
-                            let project_description_bullet_text = document.createTextNode(description);
-                            project_description_bullet.appendChild(project_description_bullet_text);
-
-                            project_description.appendChild(project_description_bullet);
-                        }
-                        project_li.appendChild(project_description);
-
-                        projects_list.appendChild(project_li);
+                        let icon = document.createElement("ion-icon");
+                        icon.setAttribute("size", "small");
+                        icon.setAttribute("name", "link");
+                        
+                        href.appendChild(icon);
+                        project_h2.appendChild(href);
                     }
+                    project_li.appendChild(project_h2);
+
+                    let project_description = document.createElement("ul");
+                    project_description.setAttribute("class", "description")
+                    for (var description in bullets) {
+                        let project_description_bullet = document.createElement("li");
+                        project_description_bullet.innerText = description;
+                        project_description_bullet.appendChild(project_description_bullet_text);
+
+                        project_description.appendChild(project_description_bullet);
+                    }
+                    project_li.appendChild(project_description);
+
+                    projects_list.appendChild(project_li);
+                }
             }
 
             // window.addEventListener('load', (event) => {
