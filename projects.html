@@ -37,7 +37,7 @@
             function processMyData(allText) {
                 // Do your work with the string here
                 let projects_list = document.querySelector(".projects-list");
-                let data = allText.split('/\r\n|\n/');
+                let data = allText.split('\n');
 
                 for (var row in data) {
                     console.log(data);
@@ -53,6 +53,10 @@
 
                     console.log(title);
                     console.log(url);
+                    console.log(tech);
+                    console.log(dates);
+                    console.log(bullets);
+                    console.log("   ---   ");
 
                     let project_li = document.createElement("li");
 
