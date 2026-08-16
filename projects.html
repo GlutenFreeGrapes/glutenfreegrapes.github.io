@@ -40,23 +40,12 @@
                 let data = allText.split('\n');
 
                 for (var row in data) {
-                    console.log(data);
-                    console.log(row);
-                    console.log(data[row]);
                     let project = data[row].split('\t');
-                    console.log(project);
                     let title = project[0];
                     let url = project[1];
                     let tech = project[2];
                     let dates = project[3];
                     let bullets = project.slice(4);
-
-                    console.log(title);
-                    console.log(url);
-                    console.log(tech);
-                    console.log(dates);
-                    console.log(bullets);
-                    console.log("   ---   ");
 
                     let project_li = document.createElement("li");
 
@@ -76,12 +65,18 @@
                     }
                     project_li.appendChild(project_h2);
 
+                    let project_date = document.createElement("h3");
+                    project_date.innerText = dates + " | ";
+                    let project_tech = document.createElement("em");
+                    project_tech.innerText = tech;
+                    project_date.appendChild(project_tech)
+                    project_li.appendChild(project_date)
+
                     let project_description = document.createElement("ul");
                     project_description.setAttribute("class", "description")
                     for (var description in bullets) {
                         let project_description_bullet = document.createElement("li");
-                        project_description_bullet.innerText = description;
-                        project_description_bullet.appendChild(project_description_bullet_text);
+                        project_description_bullet.innerText = bullets[description];
 
                         project_description.appendChild(project_description_bullet);
                     }
@@ -90,57 +85,6 @@
                     projects_list.appendChild(project_li);
                 }
             }
-
-            // window.addEventListener('load', (event) => {
-            //     fetch("assets/projects.tsv").then(
-            //         response => {
-            //             const fileContent = response.text();
-            //             let projects_list = document.querySelector(".projects-list");
-            //             data = allText.split('/\r\n|\n/');
-            //             for (var row in data) data[row].split('\t');
-
-            //             for (var project in data) {
-            //             let title = project[0];
-            //             let url = project[1];
-            //             let tech = project[2];
-            //             let dates = project[3];
-            //             let bullets = project.slice(4);
-
-            //             let project_li = document.createElement("li");
-
-            //             let project_h2 = document.createElement("h2");
-            //             let project_title_text = document.createTextNode(title);
-            //             project_h2.appendChild(project_title_text);
-
-            //             if (url !== "") {
-            //                 let href = document.createElement("a");
-            //                 href.setAttribute("href", url);
-
-            //                 let icon = document.createElement("ion-icon");
-            //                 icon.setAttribute("size", "small");
-            //                 icon.setAttribute("name", "link");
-                            
-            //                 href.appendChild(icon);
-            //                 project_h2.appendChild(a);
-            //             }
-            //             project_li.appendChild(project_h2);
-
-            //             let project_description = document.createElement("ul");
-            //             project_description.setAttribute("class", "description")
-            //             for (var description in bullets) {
-            //                 let project_description_bullet = document.createElement("li");
-            //                 let project_description_bullet_text = document.createTextNode(description);
-            //                 project_description_bullet.appendChild(project_description_bullet_text);
-
-            //                 project_description.appendChild(project_description_bullet);
-            //             }
-            //             project_li.appendChild(project_description);
-
-            //             projects_list.appendChild(project_li);
-            //         }
-            //         }
-            //     );
-            // });
         </script>
     </head>
     <body>
@@ -160,38 +104,7 @@
                 Projects <a href="https://www.github.com/GlutenFreeGrapes"><ion-icon size = "large" name="link"></ion-icon></a>
             </h1>
             <ul class = "projects-list">
-                <!-- <li><h2>Cities Chain Discord Bot <a href="https://www.github.com/GlutenFreeGrapes/cities-chain"><ion-icon size = "small" name="link"></ion-icon></a></h2>
-                <ul class="description">
-                    <li>Designed and implemented a scalable Discord game supporting thousands of players across 200+ Discord servers using efficient SQL backend data management in MariaDB for seamless gameplay</li>
-                    <li>Applied Agile software maintenance principles and used player feedback to ensure robust gameplay experience</li>
-                </ul></li>
-
-                <li><h2>Quiz Bowl Question Reader <a href="https://www.github.com/GlutenFreeGrapes/QBits"><ion-icon size = "small" name="link"></ion-icon></a></h2>
-                <ul class="description">
-                    <li>Constructed Quiz bowl study tool using efficient data structures for rapid access to a 5000+ question database, allowing for personalized statistics and improved studying methods and efficiency</li>
-                </ul></li>
-
-                <li><h2>Subway Challenge <a href="https://www.github.com/GlutenFreeGrapes/subway-challenge"><ion-icon size = "small" name="link"></ion-icon></a></h2>
-                <ul class="description">
-                    <li>Developed Python application using Pandas and Numpy to identify and analyze quickest routes spanning entire municipal rail transport systems across multiple major metropolitan areas</li>
-                </ul></li>
-
-                <li><h2>QR Code Generator <a href="https://www.github.com/GlutenFreeGrapes/QR-code-generator"><ion-icon size = "small" name="link"></ion-icon></a></h2>
-                <ul class="description">
-                    <li>Developed QR Code Generator to deepen understanding of Reed-Solomon codes, error correction, and Galois Fields, showcasing foundational computer science principles for data integrity and system robustness</li>
-                </ul></li>
-
-                <li><h2>Election Predictor <a href="https://www.github.com/GlutenFreeGrapes/election-predictor"><ion-icon size = "small" name="link"></ion-icon></a></h2>
-                <ul class="description">
-                    <li>Implemented Python Tensorflow model in Jupyter Notebook to predict 85% of 2022 United States congressional winners using weighted average of 538 polls, demonstrating robust predictive analytics capabilities</li>
-                    <li>Presented research and findings to audience of 40 at tjSTAR technology research symposium</li>
-                </ul></li> -->
             </ul>
-            
-            <!-- <h2><a href="https://www.github.com/GlutenFreeGrapes/">-</a></h2>
-            <ul>
-                <li></li>
-            </ul> -->
         </div>
 
         <div class="shieldsbox">
