@@ -7,6 +7,131 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <script>
+            // Execute the fetch immediately when the DOM is fully parsed and loaded
+            window.addEventListener('DOMContentLoaded', function() {
+            
+            // Use dot-relative path to keep the GitHub repository folder context
+            fetch('./assets/projects.tsv')
+                .then(function(response) {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok: ' + response.status);
+                }
+                return response.text(); // Extract text from the tsv file
+                })
+                .then(function(tsvText) {
+                // Your file content is loaded here without async/await
+                console.log('TSV data loaded successfully:');
+                console.log(tsvText);
+                
+                // Call your data processing functions here
+                processMyData(tsvText);
+                })
+                .catch(function(error) {
+                console.error('There was a problem loading the TSV file:', error);
+                });
+                
+            });
+
+            // Example placeholder function to handle the data next
+            function processMyData(allText) {
+                        // Do your work with the string here
+                        let projects_list = document.querySelector(".projects-list");
+                        data = allText.split('/\r\n|\n/');
+                        for (var row in data) data[row].split('\t');
+
+                        for (var project in data) {
+                        let title = project[0];
+                        let url = project[1];
+                        let tech = project[2];
+                        let dates = project[3];
+                        let bullets = project.slice(4);
+
+                        let project_li = document.createElement("li");
+
+                        let project_h2 = document.createElement("h2");
+                        let project_title_text = document.createTextNode(title);
+                        project_h2.appendChild(project_title_text);
+
+                        if (url !== "") {
+                            let href = document.createElement("a");
+                            href.setAttribute("href", url);
+
+                            let icon = document.createElement("ion-icon");
+                            icon.setAttribute("size", "small");
+                            icon.setAttribute("name", "link");
+                            
+                            href.appendChild(icon);
+                            project_h2.appendChild(a);
+                        }
+                        project_li.appendChild(project_h2);
+
+                        let project_description = document.createElement("ul");
+                        project_description.setAttribute("class", "description")
+                        for (var description in bullets) {
+                            let project_description_bullet = document.createElement("li");
+                            let project_description_bullet_text = document.createTextNode(description);
+                            project_description_bullet.appendChild(project_description_bullet_text);
+
+                            project_description.appendChild(project_description_bullet);
+                        }
+                        project_li.appendChild(project_description);
+
+                        projects_list.appendChild(project_li);
+                    }
+            }
+
+            // window.addEventListener('load', (event) => {
+            //     fetch("assets/projects.tsv").then(
+            //         response => {
+            //             const fileContent = response.text();
+            //             let projects_list = document.querySelector(".projects-list");
+            //             data = allText.split('/\r\n|\n/');
+            //             for (var row in data) data[row].split('\t');
+
+            //             for (var project in data) {
+            //             let title = project[0];
+            //             let url = project[1];
+            //             let tech = project[2];
+            //             let dates = project[3];
+            //             let bullets = project.slice(4);
+
+            //             let project_li = document.createElement("li");
+
+            //             let project_h2 = document.createElement("h2");
+            //             let project_title_text = document.createTextNode(title);
+            //             project_h2.appendChild(project_title_text);
+
+            //             if (url !== "") {
+            //                 let href = document.createElement("a");
+            //                 href.setAttribute("href", url);
+
+            //                 let icon = document.createElement("ion-icon");
+            //                 icon.setAttribute("size", "small");
+            //                 icon.setAttribute("name", "link");
+                            
+            //                 href.appendChild(icon);
+            //                 project_h2.appendChild(a);
+            //             }
+            //             project_li.appendChild(project_h2);
+
+            //             let project_description = document.createElement("ul");
+            //             project_description.setAttribute("class", "description")
+            //             for (var description in bullets) {
+            //                 let project_description_bullet = document.createElement("li");
+            //                 let project_description_bullet_text = document.createTextNode(description);
+            //                 project_description_bullet.appendChild(project_description_bullet_text);
+
+            //                 project_description.appendChild(project_description_bullet);
+            //             }
+            //             project_li.appendChild(project_description);
+
+            //             projects_list.appendChild(project_li);
+            //         }
+            //         }
+            //     );
+            // });
+        </script>
     </head>
     <body>
         <div class = "header">
@@ -24,8 +149,8 @@
             <h1>
                 Projects <a href="https://www.github.com/GlutenFreeGrapes"><ion-icon size = "large" name="link"></ion-icon></a>
             </h1>
-            <ul>
-                <li><h2>Cities Chain Discord Bot <a href="https://www.github.com/GlutenFreeGrapes/cities-chain"><ion-icon size = "small" name="link"></ion-icon></a></h2>
+            <ul class = "projects-list">
+                <!-- <li><h2>Cities Chain Discord Bot <a href="https://www.github.com/GlutenFreeGrapes/cities-chain"><ion-icon size = "small" name="link"></ion-icon></a></h2>
                 <ul class="description">
                     <li>Designed and implemented a scalable Discord game supporting thousands of players across 200+ Discord servers using efficient SQL backend data management in MariaDB for seamless gameplay</li>
                     <li>Applied Agile software maintenance principles and used player feedback to ensure robust gameplay experience</li>
@@ -50,9 +175,9 @@
                 <ul class="description">
                     <li>Implemented Python Tensorflow model in Jupyter Notebook to predict 85% of 2022 United States congressional winners using weighted average of 538 polls, demonstrating robust predictive analytics capabilities</li>
                     <li>Presented research and findings to audience of 40 at tjSTAR technology research symposium</li>
-                </ul></li>
+                </ul></li> -->
             </ul>
-
+            
             <!-- <h2><a href="https://www.github.com/GlutenFreeGrapes/">-</a></h2>
             <ul>
                 <li></li>
@@ -97,7 +222,7 @@
 
         <h1>Cards</h1>
         <div class="cards">
-            <img src="https://github-readme-stats.vercel.app/api?username=glutenfreegrapes">
+            <!-- <img src="https://github-readme-stats.vercel.app/api?username=glutenfreegrapes"> -->
             <img src="http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=glutenfreegrapes&theme=default">
             <img src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=glutenfreegrapes&theme=default">
             <img src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=glutenfreegrapes&theme=default">
