@@ -21,8 +21,8 @@
                 })
                 .then(function(tsvText) {
                 // Your file content is loaded here without async/await
-                console.log('TSV data loaded successfully:');
-                console.log(tsvText);
+                // console.log('TSV data loaded successfully:');
+                // console.log(tsvText);
                 
                 // Call your data processing functions here
                 processMyData(tsvText);
@@ -62,7 +62,7 @@
                             icon.setAttribute("name", "link");
                             
                             href.appendChild(icon);
-                            project_h2.appendChild(a);
+                            project_h2.appendChild(href);
                         }
                         project_li.appendChild(project_h2);
 
